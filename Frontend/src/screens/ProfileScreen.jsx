@@ -9,6 +9,9 @@ import Loader from '../components/Loader'
 import { setCredentials } from '../slices/AuthSlice';
 import { useUpdateUserMutation } from '../slices/userApiSlice'
 const PROFILE_IMAGE_DIR_PATH = 'http://localhost:3001/Images/'
+import cardbackground from '/landscape.jfif';
+import formbackground from '/Nature.jfif';
+
 
 
 
@@ -74,7 +77,7 @@ const ProfileScreen = () => {
   return (
     <>
       {/* User Profile Card */}
-      <Card className="mb-4">
+      <Card className="mb-4" style={{ backgroundImage: `url(${cardbackground})` }}>
         <Card.Body>
           <div className="d-flex align-items-center">
             <div className="mr-3">
@@ -95,70 +98,72 @@ const ProfileScreen = () => {
           </div>
         </Card.Body>
       </Card>
-      <FormContainer>
-        <h1>Update Profile</h1>
-        <form onSubmit={submitHandler}>
-          <Form.Group className='my-2' controlId='name'>
-            <Form.Label >Name</Form.Label>
-            <Form.Control
-              type='name'
-              placeholder='Enter name'
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            ></Form.Control>
-          </Form.Group>
+      <div style={{ backgroundImage: `url(${formbackground})` }}>
+        <FormContainer>
+          <h1>Update Profile</h1>
+          <form onSubmit={submitHandler}>
+            <Form.Group className='my-2' controlId='name'>
+              <Form.Label >Name</Form.Label>
+              <Form.Control
+                type='name'
+                placeholder='Enter name'
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              ></Form.Control>
+            </Form.Group>
 
 
-          <Form.Group className='my-2' controlId='email'>
-            <Form.Label >Email Address</Form.Label>
-            <Form.Control
-              type='email'
-              placeholder='Enter email'
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            ></Form.Control>
-          </Form.Group>
+            <Form.Group className='my-2' controlId='email'>
+              <Form.Label >Email Address</Form.Label>
+              <Form.Control
+                type='email'
+                placeholder='Enter email'
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              ></Form.Control>
+            </Form.Group>
 
 
-          <Form.Group className='my-2' controlId='password'>
-            <Form.Label >Password</Form.Label>
-            <Form.Control
-              type='password'
-              placeholder='Enter password'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            ></Form.Control>
-          </Form.Group>
+            <Form.Group className='my-2' controlId='password'>
+              <Form.Label >Password</Form.Label>
+              <Form.Control
+                type='password'
+                placeholder='Enter password'
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              ></Form.Control>
+            </Form.Group>
 
 
-          <Form.Group className='my-2' controlId='confirmpassword'>
-            <Form.Label >Confirm Password</Form.Label>
-            <Form.Control
-              type='password'
-              placeholder='Confirm password'
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            ></Form.Control>
-          </Form.Group>
-          <div className="mb-4">
-            <input onChange={handleImageChange} type="file" name="image" />
-          </div>
-          {image && (
-            <div>
-              <p>Selected Image:</p>
-              <img
-                src={URL.createObjectURL(image)}
-                alt="Selected"
-                style={{ maxWidth: '100%', maxHeight: '150px', width: 'auto', height: 'auto' }}
-              />
+            <Form.Group className='my-2' controlId='confirmpassword'>
+              <Form.Label >Confirm Password</Form.Label>
+              <Form.Control
+                type='password'
+                placeholder='Confirm password'
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              ></Form.Control>
+            </Form.Group>
+            <div className="mb-4">
+              <input onChange={handleImageChange} type="file" name="image" />
             </div>
-          )}
-          {isLoading && <Loader />}
-          <Button type='submit' variant='primary' className='mt-3'>
-            Update
-          </Button>
-        </form>
-      </FormContainer>
+            {image && (
+              <div>
+                <p>Selected Image:</p>
+                <img
+                  src={URL.createObjectURL(image)}
+                  alt="Selected"
+                  style={{ maxWidth: '100%', maxHeight: '150px', width: 'auto', height: 'auto' }}
+                />
+              </div>
+            )}
+            {isLoading && <Loader />}
+            <Button type='submit' variant='primary' className='mt-3'>
+              Update
+            </Button>
+          </form>
+        </FormContainer>
+      </div>
     </>
   )
 }
