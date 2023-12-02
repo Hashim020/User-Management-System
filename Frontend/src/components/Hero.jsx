@@ -5,7 +5,7 @@ import heroBackground from '/Nature.jfif';
 const Hero = () => {
     return (
         <div className='hero py-5' style={{ backgroundImage: `url(${heroBackground})`, borderRadius:'10px' }}>
-            <Container className='d-flex justify-content-center'>
+            <Container  className='d-flex justify-content-center'>
                 <Card className='p-5 d-flex flex-column align-items-center hero-card bg-light w-75 shadow rounded'>
                     <h1 className='text-center mb-4'>Authentication</h1>
                     <p className='text-center mb-4'>

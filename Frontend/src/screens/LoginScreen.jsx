@@ -7,6 +7,7 @@ import { useLoginMutation } from '../slices/userApiSlice';
 import { setCredentials } from '../slices/AuthSlice';
 import { toast } from 'react-toastify';
 import Loader from '../components/Loader'
+import cardbackground from '/Nature.jfif';
 
 const LoginScreen = () => {
     const [email, setEmail] = useState('');
@@ -36,8 +37,9 @@ const LoginScreen = () => {
         }
     };
 
-    return (
-        <FormContainer>
+    return (<div style={{ backgroundImage: `url(${cardbackground})` }}>
+
+        <FormContainer >
             <h1>Sign in</h1>
 
             <Form onSubmit={submitHandler}>
@@ -71,6 +73,7 @@ const LoginScreen = () => {
                 </Row>
             </Form>
         </FormContainer>
+                        </div>
     );
 };
 

@@ -8,6 +8,7 @@ import { toast } from 'react-toastify';
 import Loader from '../components/Loader'
 import { useRegisterMutation } from '../slices/userApiSlice'
 import { setCredentials } from '../slices/AuthSlice';
+import cardbackground from '/landscape.jfif';
 
 
 
@@ -47,6 +48,8 @@ const RegisterScreen = () => {
         }
     };
     return (
+        <div style={{ backgroundImage: `url(${cardbackground})` }}>
+
         <FormContainer>
             <h1>Sign Up</h1>
 
@@ -58,7 +61,7 @@ const RegisterScreen = () => {
                         placeholder='Enter name'
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                    ></Form.Control>
+                        ></Form.Control>
                 </Form.Group>
 
 
@@ -91,7 +94,7 @@ const RegisterScreen = () => {
                         placeholder='Confirm password'
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
-                    ></Form.Control>
+                        ></Form.Control>
                 </Form.Group>
 
                 {isLoading && <Loader />}
@@ -107,6 +110,7 @@ const RegisterScreen = () => {
                 </Row>
             </form>
         </FormContainer>
+                        </div>
     )
 }
 

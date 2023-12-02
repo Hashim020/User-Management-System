@@ -10,7 +10,6 @@ import { setCredentials } from '../slices/AuthSlice';
 import { useUpdateUserMutation } from '../slices/userApiSlice'
 const PROFILE_IMAGE_DIR_PATH = 'http://localhost:3001/Images/'
 import cardbackground from '/landscape.jfif';
-import formbackground from '/Nature.jfif';
 
 
 
@@ -98,7 +97,7 @@ const ProfileScreen = () => {
           </div>
         </Card.Body>
       </Card>
-      <div style={{ backgroundImage: `url(${formbackground})` }}>
+      <div  >
         <FormContainer>
           <h1>Update Profile</h1>
           <form onSubmit={submitHandler}>
